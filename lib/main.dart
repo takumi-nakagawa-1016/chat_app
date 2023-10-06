@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:chat_app/lib/page/chat.dart';
 import 'package:flutter/material.dart';
 
