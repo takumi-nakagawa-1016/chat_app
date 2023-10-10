@@ -1,4 +1,5 @@
 import 'package:chat_app/page/chat.dart';
+import 'package:chat_app/page/setting_profile_page.dart';
 import 'package:chat_app/page/top_page.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.lightGreen,
       ),
-      home: const TopPage(),
+      home: TopPage(),
     );
   }
 }

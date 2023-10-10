@@ -1,4 +1,5 @@
 import 'package:chat_app/model/user.dart';
+import 'package:chat_app/page/setting_profile_page.dart';
 import 'package:chat_app/page/talk_room_page.dart';
 import 'package:flutter/material.dart';
 
@@ -24,6 +25,17 @@ class _TopPageState extends State<TopPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("チャットアプリ"),
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => SettingsProfilePage()),
+                );
+              },
+              icon: Icon(Icons.settings))
+        ],
       ),
       body: ListView.builder(
         itemCount: userList.length,
@@ -31,9 +43,10 @@ class _TopPageState extends State<TopPage> {
           return InkWell(
             onTap: () {
               Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => TalkRoomPage(userList[index].name))
-              );
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          TalkRoomPage(userList[index].name)));
             },
             child: SizedBox(
               height: 70,
@@ -57,7 +70,7 @@ class _TopPageState extends State<TopPage> {
                               fontSize: 20, fontWeight: FontWeight.bold)),
                       Text(
                         userList[index].lastMessage,
-                        style: TextStyle(color: Colors.grey),
+                        style: const TextStyle(color: Colors.grey),
                       )
                     ],
                   ),
