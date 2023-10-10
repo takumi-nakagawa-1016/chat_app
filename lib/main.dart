@@ -1,11 +1,17 @@
-import 'package:chat_app/page/chat.dart';
-import 'package:chat_app/page/setting_profile_page.dart';
+import 'package:chat_app/firestore/user_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 import 'package:chat_app/page/top_page.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() async {
+    WidgetsFlutterBinding.ensureInitialized();
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+    await UserFirestore.createUser();
+    runApp(const MyApp());
+  }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -20,4 +26,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
